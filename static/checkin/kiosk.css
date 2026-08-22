@@ -1,0 +1,174 @@
+:root {
+    color-scheme: dark;
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    color: #f8f7f2;
+    background:
+        radial-gradient(circle at 20% 10%, #184e4b, #0b181b 55%);
+}
+
+.kiosk {
+    width: min(680px, 92vw);
+    padding: 3rem;
+    border: 1px solid #ffffff20;
+    border-radius: 28px;
+    background: #102326dd;
+    box-shadow: 0 30px 80px #0008;
+}
+
+.eyebrow {
+    color: #f5c86b;
+    letter-spacing: 0.18em;
+    font-size: 0.75rem;
+    font-weight: 800;
+}
+
+h1 {
+    margin: 0.3rem 0;
+    font-size: clamp(2rem, 6vw, 4rem);
+    line-height: 1;
+}
+
+.introduction,
+#detail {
+    color: #b9c9c8;
+}
+
+form {
+    margin-top: 2.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-weight: 700;
+}
+
+.scan-row {
+    display: flex;
+    gap: 0.7rem;
+}
+
+input,
+button {
+    min-height: 54px;
+    border-radius: 12px;
+    font: inherit;
+}
+
+input {
+    flex: 1;
+    min-width: 0;
+    padding: 0 1rem;
+    color: #102326;
+    background: #f8f7f2;
+    border: 2px solid transparent;
+}
+
+input:focus {
+    outline: none;
+    border-color: #f5c86b;
+}
+
+button {
+    padding: 0 1.4rem;
+    border: 0;
+    cursor: pointer;
+    color: #102326;
+    background: #f5c86b;
+    font-weight: 800;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.result {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border-left: 5px solid #f5c86b;
+    border-radius: 16px;
+    background: #ffffff0d;
+}
+
+.result.success {
+    border-color: #62dea2;
+}
+
+.result.failed {
+    border-color: #ff706b;
+}
+
+.hidden {
+    display: none;
+}
+
+.status-label {
+    margin: 0;
+    color: #f5c86b;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.8rem;
+    font-weight: 900;
+}
+
+.success .status-label {
+    color: #62dea2;
+}
+
+.failed .status-label {
+    color: #ff706b;
+}
+
+.result h2 {
+    margin: 0.3rem 0;
+    font-size: 2rem;
+}
+
+.spinner {
+    float: right;
+    width: 24px;
+    height: 24px;
+    border: 3px solid #ffffff30;
+    border-top-color: #f5c86b;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+.success .spinner,
+.failed .spinner {
+    display: none;
+}
+
+.test-hint {
+    margin-top: 2rem;
+    color: #78908e;
+    font-size: 0.85rem;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 520px) {
+    .kiosk {
+        padding: 1.5rem;
+    }
+
+    .scan-row {
+        flex-direction: column;
+    }
+}

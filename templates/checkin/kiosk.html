@@ -1,0 +1,70 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <title>Solstice Check-in</title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'checkin/kiosk.css' %}"
+    >
+</head>
+
+<body>
+    <main class="kiosk">
+        <p class="eyebrow">SOLSTICE EVENTS CO.</p>
+
+        <h1>Conference check-in</h1>
+
+        <p class="introduction">
+            Scan a QR code or enter its value below.
+        </p>
+
+        <form id="scan-form">
+            {% csrf_token %}
+
+            <label for="qr-code">
+                Attendee QR code
+            </label>
+
+            <div class="scan-row">
+                <input
+                    id="qr-code"
+                    autocomplete="off"
+                    autofocus
+                    placeholder="For example: SOL-001"
+                    required
+                >
+
+                <button type="submit">
+                    Check in
+                </button>
+            </div>
+        </form>
+
+        <section
+            id="result"
+            class="result hidden"
+            aria-live="polite"
+        >
+            <div class="spinner"></div>
+
+            <p id="status-label" class="status-label"></p>
+            <h2 id="attendee-name"></h2>
+            <p id="detail"></p>
+        </section>
+
+        <p class="test-hint">
+            Demo codes: SOL-001, SOL-002, SOL-003
+        </p>
+    </main>
+
+    <script src="{% static 'checkin/kiosk.js' %}"></script>
+</body>
+</html>
